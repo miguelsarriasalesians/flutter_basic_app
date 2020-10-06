@@ -1,21 +1,21 @@
-import 'package:basic_flutter_app/dog_model.dart';
-import 'dog_detail_page.dart';
+import 'package:basic_flutter_app/car_model.dart';
+import 'car_detail_page.dart';
 import 'package:flutter/material.dart';
 
-class DogCard extends StatefulWidget {
-  final Dog dog;
+class CarCard extends StatefulWidget {
+  final Car dog;
 
-  DogCard(this.dog);
+  CarCard(this.dog);
 
   @override
-  _DogCardState createState() => _DogCardState(dog);
+  _CarCardState createState() => _CarCardState(dog);
 }
 
-class _DogCardState extends State<DogCard> {
-  Dog dog;
+class _CarCardState extends State<CarCard> {
+  Car dog;
   String renderUrl;
 
-  _DogCardState(this.dog);
+  _CarCardState(this.dog);
 
   void initState() {
     super.initState();
@@ -110,7 +110,7 @@ class _DogCardState extends State<DogCard> {
 
   showDogDetailPage() {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return new DogDetailPage(dog);
+      return new CarDetailPage(dog);
     }));
   }
 

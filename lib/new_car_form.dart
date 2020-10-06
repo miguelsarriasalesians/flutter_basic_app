@@ -1,12 +1,12 @@
-import 'package:basic_flutter_app/dog_model.dart';
+import 'package:basic_flutter_app/car_model.dart';
 import 'package:flutter/material.dart';
 
-class AddDogFormPage extends StatefulWidget {
+class AddCarFormPage extends StatefulWidget {
   @override
-  _AddDogFormPageState createState() => new _AddDogFormPageState();
+  _AddCarFormPageState createState() => new _AddCarFormPageState();
 }
 
-class _AddDogFormPageState extends State<AddDogFormPage> {
+class _AddCarFormPageState extends State<AddCarFormPage> {
   TextEditingController nameController = new TextEditingController();
   TextEditingController locationController = new TextEditingController();
   TextEditingController descriptionController = new TextEditingController();
@@ -18,7 +18,7 @@ class _AddDogFormPageState extends State<AddDogFormPage> {
         content: new Text('Pups neeed names!'),
       ));
     } else {
-      var newDog = new Dog(nameController.text, locationController.text,
+      var newDog = new Car(nameController.text, locationController.text,
           descriptionController.text);
       Navigator.of(context).pop(newDog);
     }

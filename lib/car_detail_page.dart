@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'dog_model.dart';
+import 'car_model.dart';
 import 'dart:async';
 
-class DogDetailPage extends StatefulWidget {
-  final Dog dog;
-  DogDetailPage(this.dog);
+class CarDetailPage extends StatefulWidget {
+  final Car dog;
+  CarDetailPage(this.dog);
 
   @override
-  _DogDetailPageState createState() => new _DogDetailPageState();
+  _CarDetailPageState createState() => new _CarDetailPageState();
 }
 
-class _DogDetailPageState extends State<DogDetailPage> {
+class _CarDetailPageState extends State<CarDetailPage> {
   final double dogAvarterSize = 150.0;
   double _sliderValue = 10.0;
 

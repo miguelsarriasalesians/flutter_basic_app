@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:async';
 
-class Dog {
+class Car {
   final String name;
   final String location;
   final String description;
@@ -10,7 +10,7 @@ class Dog {
 
   int rating = 10;
 
-  Dog(this.name, this.location, this.description);
+  Car(this.name, this.location, this.description);
 
   Future getImageUrl() async {
     if (imageUrl != null) {

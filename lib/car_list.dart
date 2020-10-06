@@ -1,11 +1,11 @@
-import 'package:basic_flutter_app/dog_card.dart';
+import 'package:basic_flutter_app/car_card.dart';
 import 'package:flutter/material.dart';
 
-import 'dog_model.dart';
+import 'car_model.dart';
 
-class DogList extends StatelessWidget {
-  final List<Dog> doggos;
-  DogList(this.doggos);
+class CarList extends StatelessWidget {
+  final List<Car> doggos;
+  CarList(this.doggos);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class DogList extends StatelessWidget {
     return new ListView.builder(
       itemCount: doggos.length,
       itemBuilder: (context, int) {
-        return new DogCard(doggos[int]);
+        return new CarCard(doggos[int]);
       },
     );
   }
