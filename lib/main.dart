@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ..add(Car('Herbert', 'Dallas, TX, USA', 'A Very Good Boy'))
     ..add(Car('Buddy', 'North Pole, Earth', 'Self proclaimed human lover.'));
 
-  Future _showNewDogForm() async {
+  Future _showNewCarForm() async {
     Car newCar = await Navigator.of(context)
         .push(MaterialPageRoute(builder: (BuildContext context) {
       return AddCarFormPage();
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.add),
-            onPressed: _showNewDogForm,
+            onPressed: _showNewCarForm,
           ),
         ],
       ),

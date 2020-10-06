@@ -11,7 +11,7 @@ class CarDetailPage extends StatefulWidget {
 }
 
 class _CarDetailPageState extends State<CarDetailPage> {
-  final double dogAvarterSize = 150.0;
+  final double carAvarterSize = 150.0;
   double _sliderValue = 10.0;
 
   Widget get addYourRating {
@@ -66,7 +66,7 @@ class _CarDetailPageState extends State<CarDetailPage> {
         builder: (BuildContext context) {
           return new AlertDialog(
             title: new Text('Error!'),
-            content: new Text("They're good dogs, Brant."),
+            content: new Text("They're good cars, Brant."),
             actions: <Widget>[
               new FlatButton(
                 child: new Text('Try Again'),
@@ -85,12 +85,12 @@ class _CarDetailPageState extends State<CarDetailPage> {
     );
   }
 
-  Widget get dogImage {
+  Widget get carImage {
     return new Hero(
       tag: widget.car,
       child: new Container(
-        height: dogAvarterSize,
-        width: dogAvarterSize,
+        height: carAvarterSize,
+        width: carAvarterSize,
         constraints: new BoxConstraints(),
         decoration: new BoxDecoration(
             shape: BoxShape.circle,
@@ -153,7 +153,7 @@ class _CarDetailPageState extends State<CarDetailPage> {
       child: new Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          dogImage,
+          carImage,
           new Text(
             '${widget.car.name}',
             style: TextStyle(fontSize: 32.0),

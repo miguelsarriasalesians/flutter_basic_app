@@ -19,11 +19,11 @@ class _CarCardState extends State<CarCard> {
 
   void initState() {
     super.initState();
-    renderDogPic();
+    renderCarPic();
   }
 
-  Widget get dogImage {
-    var dogAvatar = new Hero(
+  Widget get carImage {
+    var carAvatar = new Hero(
       tag: car,
       child: new Container(
         width: 100.0,
@@ -53,7 +53,7 @@ class _CarCardState extends State<CarCard> {
 
     var crossFade = new AnimatedCrossFade(
       firstChild: placeholder,
-      secondChild: dogAvatar,
+      secondChild: carAvatar,
       crossFadeState: renderUrl == null
           ? CrossFadeState.showFirst
           : CrossFadeState.showSecond,
@@ -63,7 +63,7 @@ class _CarCardState extends State<CarCard> {
     return crossFade;
   }
 
-  void renderDogPic() async {
+  void renderCarPic() async {
     await car.getImageUrl();
     if (mounted) {
       setState(() {
@@ -72,7 +72,7 @@ class _CarCardState extends State<CarCard> {
     }
   }
 
-  Widget get dogCard {
+  Widget get carCard {
     return new Positioned(
       right: 0.0,
       child: new Container(
@@ -108,7 +108,7 @@ class _CarCardState extends State<CarCard> {
     );
   }
 
-  showDogDetailPage() {
+  showCarDetailPage() {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
       return new CarDetailPage(car);
     }));
@@ -117,15 +117,15 @@ class _CarCardState extends State<CarCard> {
   @override
   Widget build(BuildContext context) {
     return new InkWell(
-      onTap: () => showDogDetailPage(),
+      onTap: () => showCarDetailPage(),
       child: new Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
         child: new Container(
           height: 115.0,
           child: new Stack(
             children: <Widget>[
-              dogCard,
-              new Positioned(top: 7.5, child: dogImage),
+              carCard,
+              new Positioned(top: 7.5, child: carImage),
             ],
           ),
         ),

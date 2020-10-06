@@ -15,12 +15,12 @@ class _AddCarFormPageState extends State<AddCarFormPage> {
     if (nameController.text.isEmpty) {
       Scaffold.of(context).showSnackBar(new SnackBar(
         backgroundColor: Colors.redAccent,
-        content: new Text('Pups neeed names!'),
+        content: new Text('Cars need names!'),
       ));
     } else {
-      var newDog = new Car(nameController.text, locationController.text,
+      var newCar = new Car(nameController.text, locationController.text,
           descriptionController.text);
-      Navigator.of(context).pop(newDog);
+      Navigator.of(context).pop(newCar);
     }
   }
 
@@ -28,7 +28,7 @@ class _AddCarFormPageState extends State<AddCarFormPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text('Add a new dog'),
+        title: new Text('Add a new car'),
         backgroundColor: Colors.black87,
       ),
       body: new Container(
