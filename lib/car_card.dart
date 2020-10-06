@@ -3,19 +3,19 @@ import 'car_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class CarCard extends StatefulWidget {
-  final Car dog;
+  final Car car;
 
-  CarCard(this.dog);
+  CarCard(this.car);
 
   @override
-  _CarCardState createState() => _CarCardState(dog);
+  _CarCardState createState() => _CarCardState(car);
 }
 
 class _CarCardState extends State<CarCard> {
-  Car dog;
+  Car car;
   String renderUrl;
 
-  _CarCardState(this.dog);
+  _CarCardState(this.car);
 
   void initState() {
     super.initState();
@@ -24,7 +24,7 @@ class _CarCardState extends State<CarCard> {
 
   Widget get dogImage {
     var dogAvatar = new Hero(
-      tag: dog,
+      tag: car,
       child: new Container(
         width: 100.0,
         height: 100.0,
@@ -64,10 +64,10 @@ class _CarCardState extends State<CarCard> {
   }
 
   void renderDogPic() async {
-    await dog.getImageUrl();
+    await car.getImageUrl();
     if (mounted) {
       setState(() {
-        renderUrl = dog.imageUrl;
+        renderUrl = car.imageUrl;
       });
     }
   }
@@ -87,17 +87,17 @@ class _CarCardState extends State<CarCard> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 new Text(
-                  widget.dog.name,
+                  widget.car.name,
                   style: Theme.of(context).textTheme.headline,
                 ),
                 new Text(
-                  widget.dog.location,
+                  widget.car.location,
                   style: Theme.of(context).textTheme.subhead,
                 ),
                 new Row(
                   children: <Widget>[
                     new Icon(Icons.star),
-                    new Text(': ${widget.dog.rating}/10')
+                    new Text(': ${widget.car.rating}/10')
                   ],
                 )
               ],
@@ -110,7 +110,7 @@ class _CarCardState extends State<CarCard> {
 
   showDogDetailPage() {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return new CarDetailPage(dog);
+      return new CarDetailPage(car);
     }));
   }
 

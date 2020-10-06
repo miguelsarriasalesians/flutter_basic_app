@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'car_model.dart';
 
 class CarList extends StatelessWidget {
-  final List<Car> doggos;
-  CarList(this.doggos);
+  final List<Car> cars;
+  CarList(this.cars);
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +14,9 @@ class CarList extends StatelessWidget {
 
   ListView _buildList(context) {
     return new ListView.builder(
-      itemCount: doggos.length,
+      itemCount: cars.length,
       itemBuilder: (context, int) {
-        return new CarCard(doggos[int]);
+        return new CarCard(cars[int]);
       },
     );
   }

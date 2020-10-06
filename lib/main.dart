@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Car> initialDoggos = []
+  List<Car> initialCars = []
     ..add(Car('Ruby', 'Portland, OR, USA',
         'Ruby is a very good girl. Yes: Fetch, loungin\'. No: Dogs who get on furniture.'))
     ..add(Car('Rex', 'Seattle, WA, USA', 'Best in Show 1999'))
@@ -39,12 +39,12 @@ class _MyHomePageState extends State<MyHomePage> {
     ..add(Car('Buddy', 'North Pole, Earth', 'Self proclaimed human lover.'));
 
   Future _showNewDogForm() async {
-    Car newDog = await Navigator.of(context)
+    Car newCar = await Navigator.of(context)
         .push(MaterialPageRoute(builder: (BuildContext context) {
       return AddCarFormPage();
     }));
-    if (newDog != null) {
-      initialDoggos.add(newDog);
+    if (newCar != null) {
+      initialCars.add(newCar);
     }
   }
 
@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Colors.indigo[400]
               ])),
           child: new Center(
-            child: new CarList(initialDoggos),
+            child: new CarList(initialCars),
           )),
     );
   }

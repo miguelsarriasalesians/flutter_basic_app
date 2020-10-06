@@ -3,8 +3,8 @@ import 'car_model.dart';
 import 'dart:async';
 
 class CarDetailPage extends StatefulWidget {
-  final Car dog;
-  CarDetailPage(this.dog);
+  final Car car;
+  CarDetailPage(this.car);
 
   @override
   _CarDetailPageState createState() => new _CarDetailPageState();
@@ -55,7 +55,7 @@ class _CarDetailPageState extends State<CarDetailPage> {
       _ratingErrorDialog();
     } else {
       setState(() {
-        widget.dog.rating = _sliderValue.toInt();
+        widget.car.rating = _sliderValue.toInt();
       });
     }
   }
@@ -87,7 +87,7 @@ class _CarDetailPageState extends State<CarDetailPage> {
 
   Widget get dogImage {
     return new Hero(
-      tag: widget.dog,
+      tag: widget.car,
       child: new Container(
         height: dogAvarterSize,
         width: dogAvarterSize,
@@ -113,7 +113,7 @@ class _CarDetailPageState extends State<CarDetailPage> {
             ],
             image: new DecorationImage(
                 fit: BoxFit.cover,
-                image: new NetworkImage(widget.dog.imageUrl ?? ''))),
+                image: new NetworkImage(widget.car.imageUrl ?? ''))),
       ),
     );
   }
@@ -127,14 +127,14 @@ class _CarDetailPageState extends State<CarDetailPage> {
           size: 40.0,
         ),
         new Text(
-          '${widget.dog.rating}/10',
+          '${widget.car.rating}/10',
           style: Theme.of(context).textTheme.display2,
         )
       ],
     );
   }
 
-  Widget get dogProfile {
+  Widget get carProfile {
     return new Container(
       padding: new EdgeInsets.symmetric(vertical: 32.0),
       decoration: new BoxDecoration(
@@ -155,17 +155,17 @@ class _CarDetailPageState extends State<CarDetailPage> {
         children: <Widget>[
           dogImage,
           new Text(
-            '${widget.dog.name}',
+            '${widget.car.name}',
             style: TextStyle(fontSize: 32.0),
           ),
           new Text(
-            widget.dog.location,
+            widget.car.location,
             style: TextStyle(fontSize: 20.0),
           ),
           new Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
-            child: new Text(widget.dog.description),
+            child: new Text(widget.car.description),
           ),
           rating
         ],
@@ -179,10 +179,10 @@ class _CarDetailPageState extends State<CarDetailPage> {
       backgroundColor: Colors.black87,
       appBar: new AppBar(
         backgroundColor: Colors.black87,
-        title: new Text('Meet ${widget.dog.name}'),
+        title: new Text('Meet ${widget.car.name}'),
       ),
       body: new ListView(
-        children: <Widget>[dogProfile, addYourRating],
+        children: <Widget>[carProfile, addYourRating],
       ),
     );
   }
