@@ -34,7 +34,7 @@ class _CarDetailPageState extends State<CarDetailPage> {
                   onChanged: (newRating) {
                     setState(() {
                       _sliderValue = newRating;
-                      widget.callbackFunction(newRating.toInt());
+                      // widget.callbackFunction(newRating.toInt());
                     });
                   },
                 ),

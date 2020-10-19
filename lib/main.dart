@@ -32,68 +32,68 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Car> initialCars = []
     ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
-        description: 'Good boi',
-        imageUrl: 'lib/assets/images/backfire.png'))
-    ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
-        description: 'Good boi',
-        imageUrl: 'lib/assets/images/batmobile.png'))
-    ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
-        description: 'Good boi',
-        imageUrl: 'lib/assets/images/breakout.png'))
-    ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
-        description: 'Good boi',
-        imageUrl: 'lib/assets/images/diestro.png'))
-    ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
+        name: 'Dominus',
+        location: 'Freesstylers only',
         description: 'Good boi',
         imageUrl: 'lib/assets/images/dominus.png'))
     ..add(Car(
         name: 'Octane',
-        location: 'Winrate: 20%',
-        description: 'Good boi',
-        imageUrl: 'lib/assets/images/fennec.png'))
-    ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
-        description: 'Good boi',
-        imageUrl: 'lib/assets/images/gizmo.png'))
-    ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
-        description: 'Good boi',
-        imageUrl: 'lib/assets/images/merc.png'))
-    ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
+        location: 'OVERPOWERED',
         description: 'Good boi',
         imageUrl: 'lib/assets/images/octane.png'))
     ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
+        name: 'Batmobile',
+        location: 'I\'m... BATMAN!',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/batmobile.png'))
+    ..add(Car(
+        name: 'Backfire',
+        location: 'No one uses this',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/backfire.png'))
+    ..add(Car(
+        name: 'Breakout',
+        location: 'Breaking speed of sound',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/breakout.png'))
+    ..add(Car(
+        name: 'Diestro',
+        location: 'Alt-Right',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/diestro.png'))
+    ..add(Car(
+        name: 'Merc',
+        location: 'Fragoneta of Malacatones',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/merc.png'))
+    ..add(Car(
+        name: 'Fennec',
+        location: 'Like Octane but cool',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/fennec.png'))
+    ..add(Car(
+        name: 'Gizmo',
+        location: 'Uglier than you',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/gizmo.png'))
+    ..add(Car(
+        name: 'Ripper',
+        location: 'Mad Max vibes tho...',
         description: 'Good boi',
         imageUrl: 'lib/assets/images/ripper.png'))
     ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
+        name: 'Roadhog',
+        location: 'Other cars are Propaganda',
         description: 'Good boi',
         imageUrl: 'lib/assets/images/roadhog.png'))
     ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
+        name: 'Scarab',
+        location: 'It\'s neither a ball or a car',
         description: 'Good boi',
         imageUrl: 'lib/assets/images/scarab.png'))
     ..add(Car(
-        name: 'Octane',
-        location: 'Winrate: 20%',
+        name: 'Delorean',
+        location: 'Back to the future',
         description: 'Good boi',
         imageUrl: 'lib/assets/images/delorean.png'));
 
@@ -125,15 +125,16 @@ class _MyHomePageState extends State<MyHomePage> {
       body: new Container(
           decoration: new BoxDecoration(
               gradient: new LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                stops: [.1, .5, .7, .9],
-                colors: [
-                  Colors.green[800],
-                  Colors.yellow[700],
-                  Colors.pink[600],
-                  Colors.purple[400]
-                ],)),
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            stops: [.1, .5, .7, .9],
+            colors: [
+              Colors.green[800],
+              Colors.yellow[700],
+              Colors.pink[600],
+              Colors.purple[400]
+            ],
+          )),
           child: new Center(
             child: new CarList(initialCars),
           )),
