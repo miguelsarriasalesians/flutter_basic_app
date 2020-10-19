@@ -14,26 +14,46 @@ class CarCard extends StatefulWidget {
 class _CarCardState extends State<CarCard> {
   Car car;
   String renderUrl;
+  String image;
+  int rating;
 
   _CarCardState(this.car);
 
+
   void initState() {
     super.initState();
-    renderCarPic();
+    // renderCarPic();
   }
 
   Widget get carImage {
-    var carAvatar = new Hero(
-      tag: car,
-      child: new Container(
-        width: 100.0,
-        height: 100.0,
-        decoration: new BoxDecoration(
-            shape: BoxShape.circle,
-            image: new DecorationImage(
-                fit: BoxFit.cover, image: new NetworkImage(renderUrl ?? ''))),
-      ),
-    );
+    var carAvatar = Hero(tag: widget.car, child: Container(
+      width: 100.0,
+      height: 100.0,
+      child: Container(),
+      constraints: new BoxConstraints(),
+      decoration: new BoxDecoration(
+          shape: BoxShape.circle,
+          boxShadow: [
+            const BoxShadow(
+                offset: const Offset(1.0, 2.0),
+                blurRadius: 2.0,
+                spreadRadius: -1.0,
+                color: const Color(0x33000000)),
+            const BoxShadow(
+                offset: const Offset(2.0, 1.0),
+                blurRadius: 3.0,
+                spreadRadius: 0.0,
+                color: const Color(0x24000000)),
+            const BoxShadow(
+                offset: const Offset(3.0, 1.0),
+                blurRadius: 4.0,
+                spreadRadius: 2.0,
+                color: const Color(0x1f000000))
+          ],
+          image: new DecorationImage(
+              fit: BoxFit.cover,
+              image: new AssetImage(widget.car.imageUrl ?? ''))),
+    ));
 
     var placeholder = new Container(
       width: 100.0,
@@ -46,14 +66,14 @@ class _CarCardState extends State<CarCard> {
               colors: [Colors.black54, Colors.black, Colors.blueGrey[600]])),
       alignment: Alignment.center,
       child: new Text(
-        'DOGGO',
+        'CAR',
         textAlign: TextAlign.center,
       ),
     );
 
     var crossFade = new AnimatedCrossFade(
-      firstChild: placeholder,
-      secondChild: carAvatar,
+      firstChild: carAvatar,
+      secondChild: placeholder,
       crossFadeState: renderUrl == null
           ? CrossFadeState.showFirst
           : CrossFadeState.showSecond,
@@ -63,14 +83,14 @@ class _CarCardState extends State<CarCard> {
     return crossFade;
   }
 
-  void renderCarPic() async {
-    await car.getImageUrl();
-    if (mounted) {
-      setState(() {
-        renderUrl = car.imageUrl;
-      });
-    }
-  }
+  // void renderCarPic() async {
+  //   await car.getImageUrl();
+  //   if (mounted) {
+  //     setState(() {
+  //       renderUrl = car.imageUrl;
+  //     });
+  //   }
+  // }
 
   Widget get carCard {
     return new Positioned(
@@ -79,7 +99,7 @@ class _CarCardState extends State<CarCard> {
         width: 290,
         height: 115,
         child: new Card(
-          color: Colors.black87,
+          color: Colors.black45,
           child: new Padding(
             padding: const EdgeInsets.only(top: 8, bottom: 8, left: 64),
             child: new Column(
@@ -96,8 +116,8 @@ class _CarCardState extends State<CarCard> {
                 ),
                 new Row(
                   children: <Widget>[
-                    new Icon(Icons.star),
-                    new Text(': ${widget.car.rating}/10')
+                    new Icon(Icons.local_fire_department),
+                    new Text(': ${rating}/10')
                   ],
                 )
               ],
@@ -110,12 +130,23 @@ class _CarCardState extends State<CarCard> {
 
   showCarDetailPage() {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return new CarDetailPage(car);
+      return new CarDetailPage(car: car, callbackFunction: updateRating,);
     }));
+  }
+  void updateRating(int newRating){
+    setState(() {
+      rating = newRating;
+    });
+
   }
 
   @override
   Widget build(BuildContext context) {
+
+    rating = car.rating;
+
+
+
     return new InkWell(
       onTap: () => showCarDetailPage(),
       child: new Padding(

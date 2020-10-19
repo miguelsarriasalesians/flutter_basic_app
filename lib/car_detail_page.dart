@@ -4,7 +4,9 @@ import 'dart:async';
 
 class CarDetailPage extends StatefulWidget {
   final Car car;
-  CarDetailPage(this.car);
+  final Function callbackFunction;
+
+  CarDetailPage({this.car, this.callbackFunction});
 
   @override
   _CarDetailPageState createState() => new _CarDetailPageState();
@@ -27,11 +29,12 @@ class _CarDetailPageState extends State<CarDetailPage> {
                 child: new Slider(
                   activeColor: Colors.indigoAccent,
                   min: 0.0,
-                  max: 15.0,
+                  max: 10.0,
                   value: _sliderValue,
                   onChanged: (newRating) {
                     setState(() {
                       _sliderValue = newRating;
+                      widget.callbackFunction(newRating.toInt());
                     });
                   },
                 ),
@@ -40,7 +43,10 @@ class _CarDetailPageState extends State<CarDetailPage> {
                 width: 50.0,
                 alignment: Alignment.center,
                 child: new Text('${_sliderValue.toInt()}',
-                    style: Theme.of(context).textTheme.display1),
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .display1),
               ),
             ],
           ),
@@ -51,13 +57,9 @@ class _CarDetailPageState extends State<CarDetailPage> {
   }
 
   void updateRating() {
-    if (_sliderValue < 10) {
-      _ratingErrorDialog();
-    } else {
-      setState(() {
-        widget.car.rating = _sliderValue.toInt();
-      });
-    }
+    setState(() {
+      widget.car.rating = _sliderValue.toInt();
+    });
   }
 
   Future<Null> _ratingErrorDialog() async {
@@ -79,7 +81,12 @@ class _CarDetailPageState extends State<CarDetailPage> {
 
   Widget get submitRatingButton {
     return new RaisedButton(
-      onPressed: () => updateRating(),
+      onPressed: () {
+        setState(() {
+          updateRating();
+        });
+
+      },
       child: new Text('Submit'),
       color: Colors.indigoAccent,
     );
@@ -91,6 +98,7 @@ class _CarDetailPageState extends State<CarDetailPage> {
       child: new Container(
         height: carAvarterSize,
         width: carAvarterSize,
+        child: Container(),
         constraints: new BoxConstraints(),
         decoration: new BoxDecoration(
             shape: BoxShape.circle,
@@ -113,7 +121,7 @@ class _CarDetailPageState extends State<CarDetailPage> {
             ],
             image: new DecorationImage(
                 fit: BoxFit.cover,
-                image: new NetworkImage(widget.car.imageUrl ?? ''))),
+                image: new AssetImage(widget.car.imageUrl ?? ''))),
       ),
     );
   }
@@ -123,12 +131,15 @@ class _CarDetailPageState extends State<CarDetailPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         new Icon(
-          Icons.star,
+          Icons.local_fire_department,
           size: 40.0,
         ),
         new Text(
           '${widget.car.rating}/10',
-          style: Theme.of(context).textTheme.display2,
+          style: Theme
+              .of(context)
+              .textTheme
+              .display2,
         )
       ],
     );
@@ -143,10 +154,10 @@ class _CarDetailPageState extends State<CarDetailPage> {
           end: Alignment.bottomLeft,
           stops: [.1, .5, .7, .9],
           colors: [
-            Colors.indigo[800],
-            Colors.indigo[700],
-            Colors.indigo[600],
-            Colors.indigo[400]
+            Colors.green[800],
+            Colors.yellow[700],
+            Colors.pink[600],
+            Colors.purple[400]
           ],
         ),
       ),
@@ -164,7 +175,7 @@ class _CarDetailPageState extends State<CarDetailPage> {
           ),
           new Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
+            const EdgeInsets.symmetric(horizontal: 32.0, vertical: 16.0),
             child: new Text(widget.car.description),
           ),
           rating

@@ -11,18 +11,20 @@ class _AddCarFormPageState extends State<AddCarFormPage> {
   TextEditingController locationController = new TextEditingController();
   TextEditingController descriptionController = new TextEditingController();
 
-  void submitPup(BuildContext context) {
-    if (nameController.text.isEmpty) {
-      Scaffold.of(context).showSnackBar(new SnackBar(
-        backgroundColor: Colors.redAccent,
-        content: new Text('Cars need names!'),
-      ));
-    } else {
-      var newCar = new Car(nameController.text, locationController.text,
-          descriptionController.text);
-      Navigator.of(context).pop(newCar);
-    }
-  }
+  // void submitCar(BuildContext context) {
+  //   if (nameController.text.isEmpty) {
+  //     Scaffold.of(context).showSnackBar(new SnackBar(
+  //       backgroundColor: Colors.redAccent,
+  //       content: new Text('Cars need names!'),
+  //     ));
+  //   } else {
+  //     // var newCar = new Car(nameController.text, locationController.text,
+  //     //     descriptionController.text);
+  //     var newCar = new Car(nameController.text, locationController.text,
+  //         descriptionController.text);
+  //     Navigator.of(context).pop(newCar);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class _AddCarFormPageState extends State<AddCarFormPage> {
               child: new TextField(
                 controller: nameController,
                 onChanged: (v) => nameController.text = v,
-                decoration: new InputDecoration(labelText: 'Name the Pup'),
+                decoration: new InputDecoration(labelText: 'Name the Car'),
               ),
             ),
             new Padding(
@@ -49,7 +51,7 @@ class _AddCarFormPageState extends State<AddCarFormPage> {
               child: new TextField(
                 controller: locationController,
                 onChanged: (v) => locationController.text = v,
-                decoration: new InputDecoration(labelText: "Pup's location"),
+                decoration: new InputDecoration(labelText: "Car's location"),
               ),
             ),
             new Padding(
@@ -57,7 +59,7 @@ class _AddCarFormPageState extends State<AddCarFormPage> {
               child: new TextField(
                 controller: descriptionController,
                 onChanged: (v) => descriptionController.text = v,
-                decoration: new InputDecoration(labelText: 'All about the pup'),
+                decoration: new InputDecoration(labelText: 'All about the car'),
               ),
             ),
             new Padding(
@@ -65,9 +67,9 @@ class _AddCarFormPageState extends State<AddCarFormPage> {
               child: new Builder(
                 builder: (context) {
                   return new RaisedButton(
-                    onPressed: () => submitPup(context),
+                    // onPressed: () => submitCar(context),
                     color: Colors.indigoAccent,
-                    child: new Text('Submit Pup'),
+                    child: new Text('Submit Car'),
                   );
                 },
               ),

@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   final String title;
+
   MyHomePage({Key key, this.title}) : super(key: key);
 
   @override
@@ -30,13 +31,71 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Car> initialCars = []
-    ..add(Car('Ruby', 'Portland, OR, USA',
-        'Ruby is a very good girl. Yes: Fetch, loungin\'. No: Dogs who get on furniture.'))
-    ..add(Car('Rex', 'Seattle, WA, USA', 'Best in Show 1999'))
-    ..add(Car('Rod Stewart', 'Prague, CZ',
-        'Star good boy on international snooze team.'))
-    ..add(Car('Herbert', 'Dallas, TX, USA', 'A Very Good Boy'))
-    ..add(Car('Buddy', 'North Pole, Earth', 'Self proclaimed human lover.'));
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/backfire.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/batmobile.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/breakout.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/diestro.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/dominus.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/fennec.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/gizmo.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/merc.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/octane.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/ripper.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/roadhog.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/scarab.png'))
+    ..add(Car(
+        name: 'Octane',
+        location: 'Winrate: 20%',
+        description: 'Good boi',
+        imageUrl: 'lib/assets/images/delorean.png'));
 
   Future _showNewCarForm() async {
     Car newCar = await Navigator.of(context)
@@ -55,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
       key: key,
       appBar: new AppBar(
         title: Center(child: new Text(widget.title)),
-        backgroundColor: Color(0xff1F1883),
+        backgroundColor: Colors.black54,
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.add),
@@ -68,18 +127,13 @@ class _MyHomePageState extends State<MyHomePage> {
               gradient: new LinearGradient(
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
-                  stops: [
-                .1,
-                .5,
-                .7,
-                .9
-              ],
-                  colors: [
-                Colors.indigo[800],
-                Colors.indigo[700],
-                Colors.indigo[600],
-                Colors.indigo[400]
-              ])),
+                stops: [.1, .5, .7, .9],
+                colors: [
+                  Colors.green[800],
+                  Colors.yellow[700],
+                  Colors.pink[600],
+                  Colors.purple[400]
+                ],)),
           child: new Center(
             child: new CarList(initialCars),
           )),
