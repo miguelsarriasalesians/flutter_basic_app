@@ -33,48 +33,51 @@ class _AddCarFormPageState extends State<AddCarFormPage> {
         title: new Text('Add a new car'),
         backgroundColor: Colors.black87,
       ),
-      body: new Container(
-        color: Colors.black54,
-        child: new Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32.0),
-          child: new Column(children: [
-            new Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: new TextField(
-                controller: nameController,
-                onChanged: (v) => nameController.text = v,
-                decoration: new InputDecoration(labelText: 'Name the Car'),
+      body: SingleChildScrollView(
+        child: new Container(
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          color: Colors.black54,
+          child: new Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32.0),
+            child: new Column(children: [
+              new Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: new TextField(
+                  controller: nameController,
+                  onChanged: (v) => nameController.text = v,
+                  decoration: new InputDecoration(labelText: 'Name the Car'),
+                ),
               ),
-            ),
-            new Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: new TextField(
-                controller: locationController,
-                onChanged: (v) => locationController.text = v,
-                decoration: new InputDecoration(labelText: "Car's location"),
+              new Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: new TextField(
+                  controller: locationController,
+                  onChanged: (v) => locationController.text = v,
+                  decoration: new InputDecoration(labelText: "Car's location"),
+                ),
               ),
-            ),
-            new Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: new TextField(
-                controller: descriptionController,
-                onChanged: (v) => descriptionController.text = v,
-                decoration: new InputDecoration(labelText: 'All about the car'),
+              new Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: new TextField(
+                  controller: descriptionController,
+                  onChanged: (v) => descriptionController.text = v,
+                  decoration: new InputDecoration(labelText: 'All about the car'),
+                ),
               ),
-            ),
-            new Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: new Builder(
-                builder: (context) {
-                  return new RaisedButton(
-                    // onPressed: () => submitCar(context),
-                    color: Colors.indigoAccent,
-                    child: new Text('Submit Car'),
-                  );
-                },
-              ),
-            )
-          ]),
+              new Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: new Builder(
+                  builder: (context) {
+                    return new RaisedButton(
+                      // onPressed: () => submitCar(context),
+                      color: Colors.indigoAccent,
+                      child: new Text('Submit Car'),
+                    );
+                  },
+                ),
+              )
+            ]),
+          ),
         ),
       ),
     );

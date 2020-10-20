@@ -34,67 +34,67 @@ class _MyHomePageState extends State<MyHomePage> {
     ..add(Car(
         name: 'Dominus',
         location: 'Freesstylers only',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/dominus.png'))
     ..add(Car(
         name: 'Octane',
         location: 'OVERPOWERED',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/octane.png'))
     ..add(Car(
         name: 'Batmobile',
         location: 'I\'m... BATMAN!',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/batmobile.png'))
     ..add(Car(
         name: 'Backfire',
         location: 'No one uses this',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/backfire.png'))
     ..add(Car(
         name: 'Breakout',
         location: 'Breaking speed of sound',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/breakout.png'))
     ..add(Car(
         name: 'Diestro',
         location: 'Alt-Right',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/diestro.png'))
     ..add(Car(
         name: 'Merc',
         location: 'Fragoneta of Malacatones',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/merc.png'))
     ..add(Car(
         name: 'Fennec',
         location: 'Like Octane but cool',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/fennec.png'))
     ..add(Car(
         name: 'Gizmo',
         location: 'Uglier than you',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/gizmo.png'))
     ..add(Car(
         name: 'Ripper',
         location: 'Mad Max vibes tho...',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/ripper.png'))
     ..add(Car(
         name: 'Roadhog',
         location: 'Other cars are Propaganda',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/roadhog.png'))
     ..add(Car(
         name: 'Scarab',
         location: 'It\'s neither a ball or a car',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/scarab.png'))
     ..add(Car(
         name: 'Delorean',
         location: 'Back to the future',
-        description: 'Good boi',
+        description: 'Good car',
         imageUrl: 'lib/assets/images/delorean.png'));
 
   Future _showNewCarForm() async {
